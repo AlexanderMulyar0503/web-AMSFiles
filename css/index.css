@@ -25,3 +25,44 @@
 {
     background-color: #add8e6;
 }
+
+.filesList
+{
+    margin: 15px  auto 15px auto;
+    overflow: scroll;
+}
+
+table
+{
+    width: 90vw;
+    margin: 0 auto;
+    border-spacing: 0 5px;
+}
+
+tr
+{
+    transition: background-color .5s;
+}
+
+tr:hover
+{
+    background-color: #add8e6;
+}
+
+.itemType
+{
+    width: 55px;
+    min-width: 55px;
+}
+
+.itemName
+{
+    width: auto;
+}
+
+.itemSize, .itemDelete
+{
+    width: 120px;
+    min-width: 120px;
+    text-align: center;
+}

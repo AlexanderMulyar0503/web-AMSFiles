@@ -35,6 +35,24 @@
             </div>
         </div>
 
+        <div class="filesList">
+            <table>
+                <tr>
+                    <td class="itemType"> <img src="img/type_folder.png" width="35px" height="35px"> </td>
+                    <td class="itemName"> <a href="#"> <i>Dir</i> </a> </td>
+                    <td class="itemSize"> <i>Каталог</i> </td>
+                    <td class="itemDelete"> <a href="#"> <b>Удалить</b> </a> </td>
+                </tr>
+
+                <tr>
+                    <td class="itemType"> <img src="img/type_file.png" width="35px" height="35px"> </td>
+                    <td class="itemName"> <a href="#"> <i>File</i> </a> </td>
+                    <td class="itemSize"> <i>15 КБайт</i> </td>
+                    <td class="itemDelete"> <a href="#"> <b>Удалить</b> </a> </td>
+                </tr>
+            </table>
+        </div>
+
         <footer>
             <p>
                 <?php print($CONF["copyright"]); ?>
