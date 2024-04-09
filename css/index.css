@@ -1,0 +1,27 @@
+.filesPanel
+{
+    width: 90vw;
+    margin: 15px  auto 15px auto;
+    border-style: solid;
+    border-color: #00008b;
+    border-width: 2px;
+    box-shadow: 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createDir, .uploadFile
+{
+    width: 185px;
+    border-radius: 15px;
+    margin: 5px 0 5px 0;
+    display: flex;
+    align-items: center;
+    transition: background-color .5s;
+}
+
+.createDir:hover, .uploadFile:hover
+{
+    background-color: #add8e6;
+}
