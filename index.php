@@ -80,11 +80,11 @@
                         // Name
                         if (is_dir($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemName'> <a href='#'> <i>" . $filesList[$i] . "</i> </a> </td>");
+                            print("<td class='itemName'> <a href='index.php?dir=" . $_GET["dir"] . $filesList[$i] . "/'> <i>" . $filesList[$i] . "</i> </a> </td>");
                         }
                         if (is_file($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemName'> <a href='#'> <i>" . $filesList[$i] . "</i> </a> </td>");
+                            print("<td class='itemName'> <a target='_blank' href='download.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <i>" . $filesList[$i] . "</i> </a> </td>");
                         }
 
                         // Size
