@@ -56,6 +56,30 @@
             </div>
         </div>
 
+        <div class="pathPanel">
+            <a href="index.php"> <img src="img/home.png" width="35px" height="35px"> </a>
+
+            <?php
+                if ($_GET["dir"] == "/")
+                {
+                    print("<a href='index.php'> <img src='img/parentDir.png' width='35px' height='35px'> </a>");
+                }
+                else
+                {
+                    if (dirname($_GET["dir"]) == "/")
+                    {
+                        print("<a href='index.php?dir=" . dirname($_GET["dir"]) . "'> <img src='img/parentDir.png' width='35px' height='35px'> </a>");
+                    }
+                    else
+                    {
+                        print("<a href='index.php?dir=" . dirname($_GET["dir"]) . "/'> <img src='img/parentDir.png' width='35px' height='35px'> </a>");
+                    }
+                }
+
+                print("<p> <b>" . $_GET["dir"] . "</b> </p>");
+            ?>
+        </div>
+
         <div class="filesList">
             <table>
                 <?php
