@@ -1,5 +1,26 @@
 <?php
     include "conf.php";
+
+    if (!isset($_GET["dir"]))
+    {
+        header("Location: " . $CONF["protocol"] . "://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"] . "?dir=/");
+    }
+
+    function GetFileSize($filePath)
+    {
+        if (filesize($filePath) >= 1048576)
+        {
+            return (string)round(filesize($filePath) / 1048576) ." МБайт";
+        }
+        if (filesize($filePath) > 1024)
+        {
+            return (string)round(filesize($filePath) / 1024) ." КБайт";
+        }
+        if (filesize($filePath) <= 1024)
+        {
+            return (string)filesize($filePath) ." Байт";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,19 +58,58 @@
 
         <div class="filesList">
             <table>
-                <tr>
-                    <td class="itemType"> <img src="img/type_folder.png" width="35px" height="35px"> </td>
-                    <td class="itemName"> <a href="#"> <i>Dir</i> </a> </td>
-                    <td class="itemSize"> <i>Каталог</i> </td>
-                    <td class="itemDelete"> <a href="#"> <b>Удалить</b> </a> </td>
-                </tr>
+                <?php
+                    $pathDisk = $CONF["pathFiles"] . $_GET["dir"];
+                    $pathLink = $_GET["dir"];
+                    $filesList = scandir($pathDisk);
 
-                <tr>
-                    <td class="itemType"> <img src="img/type_file.png" width="35px" height="35px"> </td>
-                    <td class="itemName"> <a href="#"> <i>File</i> </a> </td>
-                    <td class="itemSize"> <i>15 КБайт</i> </td>
-                    <td class="itemDelete"> <a href="#"> <b>Удалить</b> </a> </td>
-                </tr>
+                    for ($i = 2; $i < count($filesList); $i++)
+                    {
+                        print("<tr>");
+
+                        // Type
+                        if (is_dir($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemType'> <img src='img/type_folder.png' width='35px' height='35px'> </td>");
+                        }
+                        if (is_file($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemType'> <img src='img/type_file.png' width='35px' height='35px'> </td>");
+                        }
+
+                        // Name
+                        if (is_dir($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemName'> <a href='#'> <i>" . $filesList[$i] . "</i> </a> </td>");
+                        }
+                        if (is_file($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemName'> <a href='#'> <i>" . $filesList[$i] . "</i> </a> </td>");
+                        }
+
+                        // Size
+                        if (is_dir($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemSize'> <i>Каталог</i> </td>");
+                        }
+                        if (is_file($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemSize'> <i>" . GetFileSize($pathDisk . $filesList[$i]) . "</i> </td>");
+                        }
+
+                        // Delete
+                        if (is_dir($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemDelete'> <a href='#'> <b>Удалить</b> </a> </td>");
+                        }
+                        if (is_file($pathDisk . $filesList[$i]))
+                        {
+                            print("<td class='itemDelete'> <a href='#'> <b>Удалить</b> </a> </td>");
+                        }
+
+                        print("</tr>");
+                    }
+                ?>
             </table>
         </div>
 
