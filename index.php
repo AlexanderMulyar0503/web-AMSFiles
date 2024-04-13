@@ -46,8 +46,10 @@
 
         <div class="filesPanel">
             <div class="createDir">
-                <a href="#"> <img src="img/type_folder.png" width="50px" height="50px"> </a>
-                <a href="#">Создать папку</a>
+                <?php
+                    print("<a href='./createDir.php?dir=" . $_GET["dir"] . "'> <img src='img/type_folder.png' width='50px' height='50px'> </a>");
+                    print("<a href='./createDir.php?dir=" . $_GET["dir"] . "'>Создать папку</a>");
+                ?>
             </div>
 
             <div class="uploadFile">
