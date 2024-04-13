@@ -53,8 +53,10 @@
             </div>
 
             <div class="uploadFile">
-                <a href="#"> <img src="img/type_file.png" width="50px" height="50px"> </a>
-                <a href="#">Загрузить файл</a>
+                <?php
+                    print("<a href='./uploadFiles.php?dir=" . $_GET["dir"] . "'> <img src='img/type_file.png' width='50px' height='50px'> </a>");
+                    print("<a href='./uploadFiles.php?dir=" . $_GET["dir"] . "'>Загрузить файл</a>");
+                ?>
             </div>
         </div>
 
