@@ -1,0 +1,13 @@
+.deleteResult
+{
+    width: max-content;
+    min-width: 300px;
+    margin: 25px auto 25px auto;
+}
+
+.deleteResult p
+{
+    width: max-content;
+    margin: 5px 5px 5px 0;
+    font-size: 18px;
+}
