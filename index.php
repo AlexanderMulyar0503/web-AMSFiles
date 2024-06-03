@@ -128,11 +128,11 @@
                         // Delete
                         if (is_dir($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <b>Удалить</b> </a> </td>");
+                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a> </td>");
                         }
                         if (is_file($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <b>Удалить</b> </a> </td>");
+                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a> </td>");
                         }
 
                         print("</tr>");
