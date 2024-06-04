@@ -1,7 +1,7 @@
 <?php
     include "conf.php";
 
-    $deleteResult = "<p> <a href='./index.php'>На главную</a> </p>";
+    $deleteResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
     if (($_GET["dir"] != "") && ($_GET["name"] != ""))
     {
@@ -10,12 +10,12 @@
             if (rmdir($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
             {
                 $deleteResult = "<p>Папка успешно удалена</p>
-                    <p> <a href='./index.php'>На главную</a> </p>";
+                    <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
             }
             else
             {
                 $deleteResult = "<p>Папка не была удалена</p>
-                    <p> <a href='./index.php'>На главную</a> </p>";
+                    <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
             }
         }
         if (is_file($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
@@ -23,12 +23,12 @@
             if (unlink($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
             {
                 $deleteResult = "<p>Файл успешно удален</p>
-                    <p> <a href='./index.php'>На главную</a> </p>";
+                    <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
             }
             else
             {
                 $deleteResult = "<p>Файл не был удален</p>
-                    <p> <a href='./index.php'>На главную</a> </p>";
+                    <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
             }
         }
     }

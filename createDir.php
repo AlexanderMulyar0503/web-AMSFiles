@@ -1,21 +1,19 @@
 <?php
     include "conf.php";
 
-    $isCreateResult = "<p> <a href='./index.php'>На главную</a> </p>";
+    $isCreateResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
     if (($_POST["nameDir"] != "") && $_GET["dir"] != "")
     {
         if (mkdir($CONF["pathFiles"] . $_GET["dir"] . $_POST["nameDir"]))
         {
             $isCreateResult = "<p>Папка успешно создана</p>
-                <p> <a href='./createDir.php?dir=" . $_GET["dir"] . "'>Вернуться</a> </p>
-                <p> <a href='./index.php'>На главную</a> </p>";
+                <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
         }
         else
         {
             $isCreateResult = "<p>Папка не была создана</p>
-                <p> <a href='./createDir.php?dir=" . $_GET["dir"] . "'>Вернуться</a> </p>
-                <p> <a href='./index.php'>На главную</a> </p>";
+                <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
         }
     }
 

@@ -17,7 +17,7 @@
         }
     }
 
-    $isUploadResult = "<p> <a href='./index.php'>На главную</a> </p>";
+    $isUploadResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
     if (($_FILES["uploadFile"]["name"] != "") && ($_GET["dir"] != ""))
     {
@@ -26,14 +26,12 @@
         if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"], $fileName))
         {
             $isUploadResult = "<p>Файл успешно загружен</p>
-                <p> <a href='./createDir.php?dir=" . $_GET["dir"] . "'>Вернуться</a> </p>
-                <p> <a href='./index.php'>На главную</a> </p>";
+                <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
         }
         else
         {
             $isUploadResult = "<p>Файл не был загружен. Код ошибки: " . $_FILES["uploadFile"]["error"] . "</p>
-                <p> <a href='./createDir.php?dir=" . $_GET["dir"] . "'>Вернуться</a> </p>
-                <p> <a href='./index.php'>На главную</a> </p>";
+                <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
         }
     }
 ?>
