@@ -125,14 +125,22 @@
                             print("<td class='itemSize'> <i>" . GetFileSize($pathDisk . $filesList[$i]) . "</i> </td>");
                         }
 
-                        // Delete
+                        // Actions
                         if (is_dir($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a> </td>");
+                            print("<td class='itemActions'>");
+                            print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
+                            print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
+                            print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
+                            print("</td>");
                         }
                         if (is_file($pathDisk . $filesList[$i]))
                         {
-                            print("<td class='itemDelete'> <a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a> </td>");
+                            print("<td class='itemActions'>");
+                            print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
+                            print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
+                            print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
+                            print("</td>");
                         }
 
                         print("</tr>");

@@ -82,9 +82,16 @@ tr:hover
     width: auto;
 }
 
-.itemSize, .itemDelete
+.itemSize
 {
     width: 120px;
     min-width: 120px;
     text-align: center;
+}
+
+.itemActions
+{
+    width: 120px;
+    min-width: 120px;
+    text-align: right;
 }
