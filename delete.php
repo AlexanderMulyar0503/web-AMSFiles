@@ -1,13 +1,37 @@
 <?php
     include "conf.php";
 
+    function removeDir($path)
+    {
+        $dir = opendir($path);
+
+        while (($file = readdir($dir)) != false)
+        {
+            if ($file != '.' && $file != '..')
+            {
+                if (is_dir($path . '/' . $file))
+                {
+                    removeDir($path . '/' . $file);
+                }
+                else
+                {
+                    unlink($path . '/' . $file);
+                }
+            }
+        }
+
+        closedir($dir);
+
+        return rmdir($path);
+    }
+
     $deleteResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
     if (($_GET["dir"] != "") && ($_GET["name"] != ""))
     {
         if (is_dir($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
         {
-            if (rmdir($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
+            if (removeDir($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
             {
                 $deleteResult = "<p>Папка успешно удалена</p>
                     <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
