@@ -1,6 +1,34 @@
 <?php
     include "conf.php";
 
+    function copyDir($in, $out)
+    {
+        $dir = opendir($in);
+
+        if (!file_exists($out)) {
+            mkdir($out);
+        }
+
+        while (($file = readdir($dir)) != false)
+        {
+            if ($file != '.' && $file != '..')
+            {
+                if (is_dir($in . '/' . $file))
+                {
+                    copyDir($in . '/' . $file, $out . '/' . $file);
+                }
+                else
+                {
+                    copy($in . '/' . $file, $out . '/' . $file);
+                }
+            }
+        }
+
+        closedir($dir);
+
+        if (file_exists($out)) { return true; }
+    }
+
     $moveResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
     if (($_GET["dir"] != "") && ($_GET["name"] != "") && ($_GET["to"] != ""))
@@ -10,6 +38,11 @@
             if (($_GET["act"] == "m") && (rename($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"], $CONF["pathFiles"] . $_GET["to"] . $_GET["name"])))
             {
                 $moveResult = "<p>Папка успешно перемещена</p>
+                    <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
+            }
+            elseif (($_GET["act"] == "c") && (copyDir($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"], $CONF["pathFiles"] . $_GET["to"] . $_GET["name"])))
+            {
+                $moveResult = "<p>Папка успешно скопирована</p>
                     <p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
             }
             else
