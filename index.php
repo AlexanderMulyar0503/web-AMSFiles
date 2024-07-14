@@ -129,6 +129,7 @@
                         if (is_dir($pathDisk . $filesList[$i]))
                         {
                             print("<td class='itemActions'>");
+                            print("<a href='./renameDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/rename.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
@@ -137,6 +138,7 @@
                         if (is_file($pathDisk . $filesList[$i]))
                         {
                             print("<td class='itemActions'>");
+                            print("<a href='./renameDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/rename.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
