@@ -17,9 +17,14 @@
         }
     }
 
+    if (!isset($_GET["dir"]))
+    {
+        header("Location: " . $_SERVER["REQUEST_URI"] . "?dir=/");
+    }
+
     $isUploadResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
-    if (($_FILES["uploadFile"]["name"] != "") && ($_GET["dir"] != ""))
+    if (isset($_FILES["uploadFile"]) && isset($_GET["dir"]))
     {
         $fileName = $CONF["pathFiles"] . $_GET["dir"] . $_FILES["uploadFile"]["name"];
 

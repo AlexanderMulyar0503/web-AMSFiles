@@ -1,9 +1,14 @@
 <?php
     include "conf.php";
 
+    if (!isset($_GET["dir"]))
+    {
+        header("Location: " . $_SERVER["REQUEST_URI"] . "?dir=/");
+    }
+
     $isCreateResult = "<p> <a href='./index.php?dir=" . $_GET["dir"] . "'>На главную</a> </p>";
 
-    if (($_POST["nameDir"] != "") && $_GET["dir"] != "")
+    if (isset($_POST["nameDir"]) && isset($_GET["dir"]))
     {
         if (mkdir($CONF["pathFiles"] . $_GET["dir"] . $_POST["nameDir"]))
         {

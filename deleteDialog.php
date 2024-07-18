@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="img/favicon.png">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/deleteQuestion.css">
+        <link rel="stylesheet" href="css/deleteDialog.css">
     </head>
 
     <body>
@@ -23,7 +23,7 @@
             </div>
         </header>
 
-        <div class="questionForm">
+        <div class="deleteDialog">
             <?php
                 if (($_GET["dir"] != "") && ($_GET["name"] != ""))
                 {

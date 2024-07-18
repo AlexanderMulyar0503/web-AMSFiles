@@ -3,7 +3,7 @@
 
     if (!isset($_GET["dir"]))
     {
-        header("Location: " . $CONF["protocol"] . "://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"] . "?dir=/");
+        header("Location: " . $_SERVER["REQUEST_URI"] . "?dir=/");
     }
 
     function GetFileSize($filePath)
@@ -132,7 +132,7 @@
                             print("<a href='./renameDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/rename.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
-                            print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
+                            print("<a href='./deleteDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
                             print("</td>");
                         }
                         if (is_file($pathDisk . $filesList[$i]))
@@ -141,7 +141,7 @@
                             print("<a href='./renameDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/rename.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=m&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/moveFile.png' width='25px' height='25px'> </a>");
                             print("<a href='./moveDialog.php?act=c&dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/copyFile.png' width='25px' height='25px'> </a>");
-                            print("<a href='./deleteQuestion.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
+                            print("<a href='./deleteDialog.php?dir=" . $_GET["dir"] . "&name=" . $filesList[$i] . "'> <img src='img/delete.png' width='25px' height='25px'> </a>");
                             print("</td>");
                         }
 
