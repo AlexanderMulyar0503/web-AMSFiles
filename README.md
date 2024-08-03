@@ -36,4 +36,4 @@ chown -R www-data:www-data /path/to/folder
 
 
 ### Настройки AMSFiles
-Настройки AMSFiles находятся в файле *conf.php*
+Образец настроек хранится в файле *conf.sample.php*. Необходимо переименовать файл *conf.sample.php* в *conf.php* и внести необходимые изменения.
