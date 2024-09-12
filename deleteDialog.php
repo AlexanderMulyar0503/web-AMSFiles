@@ -31,13 +31,13 @@
                     {
                         print("<p>Вы действительно хотите удалить папку <b>" . $_GET["name"] . "</b>?</p>");
                         print("<p> <a href='delete.php?dir=" . $_GET["dir"] . "&name=" . $_GET["name"] . "'>Удалить</a> </p>");
-                        print("<p> <a href='index.php'>Отмена</a> </p>");
+                        print("<p> <a href='index.php?dir=" . $_GET["dir"] . "'>Отмена</a> </p>");
                     }
                     if (is_file($CONF["pathFiles"] . $_GET["dir"] . $_GET["name"]))
                     {
                         print("<p>Вы действительно хотите удалить файл <b>" . $_GET["name"] . "</b>?</p>");
                         print("<p> <a href='delete.php?dir=" . $_GET["dir"] . "&name=" . $_GET["name"] . "'>Удалить</a> </p>");
-                        print("<p> <a href='index.php'>Отмена</a> </p>");
+                        print("<p> <a href='index.php?dir=" . $_GET["dir"] . "'>Отмена</a> </p>");
                     }
                 }
             ?>
